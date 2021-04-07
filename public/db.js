@@ -25,10 +25,13 @@ DBrequest.onerror = function(e) {
 }
 
 function saveRecord(record) {
+    //Readwrite access transaction on pending db
     const transaction = db.transaction(["pending"], "readwrite")
 
+    //accesss pending object store
     const store = transaction.objectStore("pending")
 
+    //add record to store
     store.add(record)
 }
 
